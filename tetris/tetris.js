@@ -51,6 +51,7 @@ export class Tetris {
         window.cancelAnimationFrame(this._animationLoop);
         this.keyMap = this.startKeyMappings;
         this._screenDisplay.displayGameOver();
+        this._screenDisplay.displayStartScreen();
     }
 
     _update() {

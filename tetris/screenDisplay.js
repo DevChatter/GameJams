@@ -44,7 +44,7 @@ export class ScreenDisplay {
         const h = 50;
         const w = measurement.width + 5;
         const x = this._canvas.width / 2 - w / 2;
-        const y = this._canvas.height / 2 - h / 2;
+        const y = this._canvas.height / 3 - h / 2;
         this._context.fillRect(x,y,w,h);
 
         this._context.fillStyle = '#FF0000';
