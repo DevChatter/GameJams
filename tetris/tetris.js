@@ -49,7 +49,7 @@ export class Tetris {
 
     endGame() {
         window.cancelAnimationFrame(this._animationLoop);
-        document.removeEventListener('keydown', this._keyDownHandler); // switch to other mappings?
+        this.keyMap = this.startKeyMappings;
         this._screenDisplay.displayGameOver();
     }
 
