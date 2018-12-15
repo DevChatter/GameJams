@@ -19,7 +19,7 @@ export class Tetris {
             32: () => this.start(),
         };
         this.gameKeyMappings = {
-            87:() =>  this.piece.rotate(), // w
+            87: () => this.piece.rotate(), // w
             38: () => this.piece.rotate(), // up
             65: () => this.piece.moveLeft(), // a
             37: () => this.piece.moveLeft(), // left
