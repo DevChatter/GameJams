@@ -15,8 +15,8 @@ export class Tetris {
         this.fpsDisplay = document.getElementById('fps');
 
         this.startKeyMappings = {
-            13: () => this.start(),
-            32: () => this.start(),
+            13: () => this.start(), // enter
+            32: () => this.start(), // space
         };
         this.gameKeyMappings = {
             87: () => this.piece.rotate(), // w
