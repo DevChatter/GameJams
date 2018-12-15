@@ -15,8 +15,8 @@ export class Tetris {
         this.fpsDisplay = document.getElementById('fps');
 
         this.startKeyMappings = {
-            13: () => this.start(), // enter
-            32: () => this.start(), // space
+            13: () => this.startGame(), // enter
+            32: () => this.startGame(), // space
         };
         this.gameKeyMappings = {
             87: () => this.piece.rotate(), // w
@@ -38,7 +38,7 @@ export class Tetris {
         document.addEventListener('keydown', this._keyDownHandler);
     }
 
-    start() {
+    startGame() {
         this.keyMap = this.gameKeyMappings;
         this._updateCounter = 0;
 
@@ -47,12 +47,14 @@ export class Tetris {
         this._animationLoop = window.requestAnimationFrame(this._updateHandler);
     }
 
-    stop() {
+    endGame() {
         window.cancelAnimationFrame(this._animationLoop);
         document.removeEventListener('keydown', this._keyDownHandler); // switch to other mappings?
+        this._screenDisplay.displayGameOver();
     }
 
     _update() {
+        this._animationLoop = window.requestAnimationFrame(this._updateHandler);
         const now = performance.now();
         while (times.length > 0 && times[0] <= now - 1000) { times.shift(); }
         times.push(now);
@@ -63,17 +65,27 @@ export class Tetris {
         if (this.piece.doneMoving) {
             this.piece = new Piece(this.blockManager);
         }
+        if (this._isGameOver()) {
+            this.endGame();
+            return;
+        }
         if (this._updateCounter >= 30) {
             this._updateCounter = 0;
             this.piece.moveDown();
         }
 
         this._screenDisplay.draw(this.piece, this.blockManager);
-        this._animationLoop = window.requestAnimationFrame(this._updateHandler);
+    }
+
+    _isGameOver() {
+        return this.piece.blocks.some(block => this.blockManager.hasAtLocation(block.x, block.y));
     }
 
     _onKeyDown(event) {
-        this.keyMap[event.keyCode]();
+        const keyHandler = this.keyMap[event.keyCode];
+        if (keyHandler) {
+            keyHandler();
+        }
     }
 }
 

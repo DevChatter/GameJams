@@ -12,7 +12,7 @@ export class Piece {
         this.y = 0;
         this._blockManager = blockManager;
         this._pieceType = PieceTypeData[Math.floor(Math.random() * PieceTypeData.length)];
-        this._rotationIndex = -1;
+        this._rotationIndex = 0;
         this.blocks = [];
         this._createBlocks();
         this.doneMoving = false;
@@ -67,8 +67,10 @@ export class Piece {
     }
 
     _createBlocks() {
+        const locations = this._pieceType.blockLocations[this._rotationIndex];
         for (let index = 0; index < 4; index++) {
-            this.blocks.push(new Block(this._pieceType.color, 0, 0, this));
+            const location = locations[index];
+            this.blocks.push(new Block(this._pieceType.color, location.xRel, location.yRel, this));
         }
         this.rotate();
     }

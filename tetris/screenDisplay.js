@@ -34,6 +34,23 @@ export class ScreenDisplay {
         this._bgContext.stroke();
     }
 
+    displayGameOver() {
+        const fontSize = 40;
+        this._context.font = `${fontSize}px Arial`;
+        const text = 'Game Over';
+        const measurement = this._context.measureText(text);
+
+        this._context.fillStyle = '#CCCCCC';
+        const h = 50;
+        const w = measurement.width + 5;
+        const x = this._canvas.width / 2 - w / 2;
+        const y = this._canvas.height / 2 - h / 2;
+        this._context.fillRect(x,y,w,h);
+
+        this._context.fillStyle = '#FF0000';
+        this._context.fillText(text, x, y + h /2 + fontSize / 2);
+    }
+
     displayStartScreen() {
         const fontSize = 30;
         this._context.font = `${fontSize}px Arial`;
