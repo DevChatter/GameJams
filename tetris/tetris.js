@@ -78,6 +78,7 @@ export class Tetris {
             this._updateCounter = 0;
             this.piece.moveDown();
         }
+        this.gameState.displayData();
 
         this._screenDisplay.draw(this.piece, this.blockManager);
     }
@@ -100,5 +101,5 @@ export class Tetris {
     }
 }
 
-let app = new Tetris();
-app.initialize();
+let tetris = new Tetris();
+tetris.initialize();

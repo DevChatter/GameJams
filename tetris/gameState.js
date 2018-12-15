@@ -1,6 +1,15 @@
 export class GameState {
     constructor () {
+        this.pointsDisplay = document.getElementById('points');
+        this.rowsDisplay = document.getElementById('rows');
+        this.piecesDisplay = document.getElementById('pieces');
         this.reset();
+    }
+
+    displayData() {
+        this.pointsDisplay.innerText = `Points: ${this.points}`;
+        this.rowsDisplay.innerText = `Rows: ${this.rowsCleared}`;
+        this.piecesDisplay.innerText = `Pieces: ${this.pieceCount}`;
     }
 
     reset() {
