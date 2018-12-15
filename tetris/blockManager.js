@@ -1,9 +1,10 @@
 export class BlockManager {
-    constructor() {
+    constructor(gameState) {
         this.grid = [];
         this._addEmptyRows(20);
         this.x = 0;
         this.y = 0;
+        this.gameState = gameState;
     }
 
     addBlocks(blocks) {
@@ -11,7 +12,8 @@ export class BlockManager {
             block.container = this;
             this.grid[block.y][block.x] = block;
         });
-        this.clearCompleteRows(blocks.map(block => block.y));
+        const rowCount = this.clearCompleteRows(blocks.map(block => block.y));
+        this.gameState.recordClearedRows(rowCount, 1);
     }
 
     hasAtLocation(x, y) {

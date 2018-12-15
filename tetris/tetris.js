@@ -1,4 +1,5 @@
 import { Piece } from './piece.js';
+import { GameState } from './gameState.js';
 import { BlockManager } from './blockManager.js';
 import { ScreenDisplay } from './screenDisplay.js';
 
@@ -9,6 +10,7 @@ const bgCanvas = document.getElementById('bgCanvas');
 
 export class Tetris {
     constructor() {
+        this.gameState = new GameState();
         this._keyDownHandler = this._onKeyDown.bind(this);
         this._updateHandler = this._update.bind(this);
 
@@ -39,11 +41,13 @@ export class Tetris {
     }
 
     startGame() {
+        this.gameState.reset();
+        this.gameState.start();
         this.keyMap = this.gameKeyMappings;
         this._updateCounter = 0;
 
-        this.blockManager = new BlockManager();
-        this.piece = new Piece(this.blockManager);
+        this.blockManager = new BlockManager(this.gameState);
+        this._setNewPiece();
         this._animationLoop = window.requestAnimationFrame(this._updateHandler);
     }
 
@@ -64,7 +68,7 @@ export class Tetris {
 
         this._updateCounter++;
         if (this.piece.doneMoving) {
-            this.piece = new Piece(this.blockManager);
+            this._setNewPiece();
         }
         if (this._isGameOver()) {
             this.endGame();
@@ -74,8 +78,15 @@ export class Tetris {
             this._updateCounter = 0;
             this.piece.moveDown();
         }
+        this.gameState.displayData();
 
         this._screenDisplay.draw(this.piece, this.blockManager);
+    }
+
+    _setNewPiece() {
+        const piece = new Piece(this.blockManager);
+        this.gameState.recordPiece(piece);
+        this.piece = piece;
     }
 
     _isGameOver() {
@@ -90,5 +101,5 @@ export class Tetris {
     }
 }
 
-let app = new Tetris();
-app.initialize();
+let tetris = new Tetris();
+tetris.initialize();
