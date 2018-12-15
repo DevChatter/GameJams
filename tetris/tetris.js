@@ -74,28 +74,8 @@ export class Tetris {
 
     _onKeyDown(event) {
         this.keyMap[event.keyCode]();
-        // switch (event.keyCode) {
-        //     case 87: // w
-        //     case 38: // up
-        //         this.piece.rotate();
-        //         break;
-        //     case 65: // a
-        //     case 37: // left
-        //         this.piece.moveLeft();
-        //         break;
-        //     case 83: // s
-        //     case 40: // down
-        //         this.piece.moveDown();
-        //         break;
-        //     case 68: // d
-        //     case 39: // right
-        //         this.piece.moveRight();
-        //         break;
-        //     default:
-        //         break;
-        // }
     }
 }
 
-let app = new Tetris()
+let app = new Tetris();
 app.initialize();
