@@ -85,6 +85,7 @@ export class Tetris {
     _onKeyDown(event) {
         const keyHandler = this.keyMap[event.keyCode];
         if (keyHandler) {
+            event.preventDefault();
             keyHandler();
         }
     }
