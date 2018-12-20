@@ -78,3 +78,36 @@ When the player crashes, we will show an end-game screen, displaying the number 
 ### Restart Game
 
 While we're on the End Game screen, the player can press the space keyboard (or maybe also click a button) to start the game again.
+
+### Display Statistical Information
+
+While playing, the game should display some stats along the side.
+
+- Current Score
+- Number of Presents
+- Number of Reindeer
+- Current Playtime
+- Previous High Score
+
+### Display Insutrctions
+
+We should display the game information, so that players know how to play without reading this document.
+
+## Extra Credit Section
+
+### Generated Item Variances
+
+- Sometimes add more than one item at a time to give the player the choice. (Should the other one disappear when you pick up one?)
+- Have carrots as an item to increase the speed.
+- Have cookies as an item to slow the speed.
+
+### Change size of the playing area
+
+We could allow configuring the size of the gameplay area in some way.
+
+### Game Levels
+
+Once the player reaches some number of reindeer and presents, he/she can proceed to the next level where we start having obstacles to avoid.
+
+- Level 2 adds static obstacles in the play area (rocks, trees, logs, etc.)
+- Level 3 adds moving obstacles in the play area (penguins? - I haven't drawn this yet.)
