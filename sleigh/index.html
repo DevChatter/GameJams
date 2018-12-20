@@ -1,0 +1,26 @@
+<html>
+<head>
+    <script src="sleigh.js" type="module"></script>
+    <style>
+        #canvasWrapper {
+            position:relative;
+            width:544px;
+            height:544px;
+        }
+        #bgCanvas {
+            position:absolute; top:0px; left:0px;
+        }
+        #gridCanvas {
+            position:absolute; top:32px; left:32px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game">
+        <div id="canvasWrapper">
+                <canvas id="bgCanvas" width="544" height="544"></canvas>
+                <canvas id="gridCanvas" width="480" height="480"></canvas>
+        </div>
+    </div>
+</body>
+</html>
