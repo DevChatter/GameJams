@@ -1,0 +1,18 @@
+.score{
+    float: left;
+}
+
+.level{
+    float: right;
+}
+#canvasWrapper {
+    position:relative;
+    width:544px;
+    height:544px;
+}
+#bgCanvas {
+    position:absolute; top:0px; left:0px;
+}
+#gridCanvas {
+    position:absolute; top:64px; left:64px;
+}

@@ -1,25 +1,24 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <script src="sleigh.js" type="module"></script>
-    <style>
-        #canvasWrapper {
-            position:relative;
-            width:544px;
-            height:544px;
-        }
-        #bgCanvas {
-            position:absolute; top:0px; left:0px;
-        }
-        #gridCanvas {
-            position:absolute; top:32px; left:32px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+    <div id="start">Press 'space' to start</div>
+    <div id="scoresWrapper">
+        <div class="score">
+            Score: <span id="score">70</span>
+        </div>
+        <div class="level">
+            Level: <span id="level">2</span>
+        </div>
+    </div>
     <div id="game">
         <div id="canvasWrapper">
-                <canvas id="bgCanvas" width="544" height="544"></canvas>
-                <canvas id="gridCanvas" width="480" height="480"></canvas>
+                <canvas id="bgCanvas" width="608" height="608"></canvas>
+                <canvas id="gridCanvas" width="480" height="480" tabindex="1"></canvas>
         </div>
     </div>
 </body>

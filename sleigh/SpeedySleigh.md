@@ -89,7 +89,7 @@ While playing, the game should display some stats along the side.
 - Current Playtime
 - Previous High Score
 
-### Display Insutrctions
+### Display Instructions
 
 We should display the game information, so that players know how to play without reading this document.
 

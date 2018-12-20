@@ -26,7 +26,7 @@ export const KEY = Object.freeze({
   SIX: 54,
   SEVEN: 55,
   EIGHT: 56,
-  NINE: 57,
+  NINE: 57,  
   A: 65,
   B: 66,
   C: 67,
@@ -53,4 +53,14 @@ export const KEY = Object.freeze({
   X: 88,
   Y: 89,
   Z: 90,
+  NUMPAD_ZERO: 96,
+  NUMPAD_ONE: 97,
+  NUMPAD_TWO: 98,
+  NUMPAD_THREE: 99,
+  NUMPAD_FOUR: 100,
+  NUMPAD_FIVE: 101,
+  NUMPAD_SIX: 102,
+  NUMPAD_SEVEN: 103,
+  NUMPAD_EIGHT: 104,
+  NUMPAD_NINE: 105
 });
