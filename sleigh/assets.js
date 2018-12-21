@@ -64,7 +64,7 @@ greenGiftImage.src = './images/gift-green-1.png';
 export const giftImages = [redGiftImage, blueGiftImage, greenGiftImage];
 
 const sleighImage = new Image();
-sleighImage.src = './images/sleigh/sleigh.png';
+sleighImage.src = './images/sleigh/sleigh-2.png';
 
 const runningReindeerImage = new Image();
 runningReindeerImage.src = './images/Running-Reindeer-1.png';
